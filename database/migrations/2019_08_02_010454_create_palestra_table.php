@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateClienteTable extends Migration
+class CreatePalestraTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateClienteTable extends Migration
      */
     public function up()
     {
-        Schema::create('cliente', function (Blueprint $table) {
+        Schema::create('palestra', function (Blueprint $table) {
             $table->integer('id')->autoIncrement();
             $table->string('nome',100);
-            $table->string('profissao',250)->nullable(true);
+            $table->string('evento',250)->nullable(true);
 
             //CONFIGURAÇÕES DO BANCO
             $table->engine    = 'InnoDB';
@@ -32,6 +32,6 @@ class CreateClienteTable extends Migration
      */
     public function down()
     {
-      Schema::dropIfExists('cliente');
+      Schema::dropIfExists('palestra');
     }
 }

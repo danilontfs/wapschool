@@ -1,18 +1,18 @@
 <?php
 
-namespace App;
+namespace App\Wapschool;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Cliente extends Model
+class Palestra extends Model
 {
-    protected $table = 'cliente';
+    protected $table = 'palestra';
 
     protected $primaryKey = 'id';
 
     public $timestamps = false;
 
     protected $fillable = [
-      'nome','profissao'
+      'nome','evento'
     ];
 }

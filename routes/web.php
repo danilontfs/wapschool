@@ -14,3 +14,17 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+//ROTAS DA PALESTRA
+Route::group(['prefix'=>'/palestras'],function(){
+  Route::get('/','Wapschool\PalestraController@index')->name('listarPalestras');
+
+  Route::get('/adicionar','Wapschool\PalestraController@create')->name('adicionarPalestra');
+  Route::post('/adicionar','Wapschool\PalestraController@store')->name('adicionarPalestraPost');
+
+  Route::get('/atualizar/{id}','Wapschool\PalestraController@edit')->where(['id'=>'[0-9]+'])->name('atualizarPalestra');
+  Route::put('/atualizar/{id}','Wapschool\PalestraController@update')->where(['id'=>'[0-9]+'])->name('atualizarPalestraPut');
+
+  Route::delete('/remover/{id}','Wapschool\PalestraController@destroy')->where(['id'=>'[0-9]+'])->name('removerPalestra');
+});
