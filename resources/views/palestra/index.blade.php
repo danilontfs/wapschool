@@ -41,4 +41,8 @@
   </ul>
 
 </div>
+
+<div class="col-sm-12 mt-3">
+  {{ $palestras->links() }}
+</div>
 @endsection

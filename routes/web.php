@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 
 //ROTAS DA PALESTRA
-Route::group(['prefix'=>'/palestras'],function(){
+Route::group(['prefix'=>'/palestras','middleware'=>'auth'],function(){
   Route::get('/','Wapschool\PalestraController@index')->name('listarPalestras');
 
   Route::get('/adicionar','Wapschool\PalestraController@create')->name('adicionarPalestra');
@@ -28,3 +28,7 @@ Route::group(['prefix'=>'/palestras'],function(){
 
   Route::delete('/remover/{id}','Wapschool\PalestraController@destroy')->where(['id'=>'[0-9]+'])->name('removerPalestra');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

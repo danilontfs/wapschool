@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Wapschool;
 
 use App\Wapschool\Palestra;
+use App\Http\Requests\Wapschool\PalestraRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -16,7 +17,7 @@ class PalestraController extends Controller
     public function index(Request $request)
     {
       //PALESTRAS DA LISTAGEM
-      $palestras = Palestra::query()->orderBy('nome','ASC')->get();
+      $palestras = Palestra::query()->orderBy('nome','ASC')->paginate(3);
 
       //VARIÁVEIS DA VIEW
       $variaveisView = [
@@ -44,7 +45,7 @@ class PalestraController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PalestraRequest $request)
     {
       //DADOS FORMULÁRIO
       $dadosPalestra = $request->all();

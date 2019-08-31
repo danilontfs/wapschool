@@ -18,6 +18,6 @@ class PalestraSeeder extends Seeder
         'evento' => 'Wapschool'
       ]);
 
-      factory(Palestra::class,2)->create();
+      factory(Palestra::class,100)->create();
     }
 }
